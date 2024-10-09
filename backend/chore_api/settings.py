@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 if os.path.exists('env.py'):
     import env
@@ -33,6 +34,9 @@ ALLOWED_HOSTS = [
     '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net'
+]
 
 # Application definition
 
@@ -43,6 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
+
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +61,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
 ]
 
 ROOT_URLCONF = 'chore_api.urls'
