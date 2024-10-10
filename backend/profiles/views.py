@@ -2,7 +2,7 @@ from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Profile
 from .serializers import ProfileSerializer
-from drf_api.permissons import IsOwnerOrReadOnly
+from chore_api.permissions import IsOwnerOrReadOnly
 
 class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
