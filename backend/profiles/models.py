@@ -14,7 +14,7 @@ class Profile(models.Model):
     household = models.CharField(max_length=30)
 
     def __str__(self):
-        return f"{self.member} is a {self.parent} in the {self.household} household"
+        return f"{self.member.username} is a {self.role} in the {self.household} household"
 
 
 def create_profile(sender, instance, created, **kwargs):
