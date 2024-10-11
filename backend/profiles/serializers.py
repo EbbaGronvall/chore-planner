@@ -5,7 +5,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     member = serializers.ReadOnlyField(source='member.username')
     is_member = serializers.SerializerMethodField()
 
-    def get_is_member(self, object):
+    def get_is_member(self, obj):
         request = self.context['request']
         return request.user == obj.member
 

@@ -12,8 +12,16 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend,
         filters.SearchFilter
     ]
-    filterset_fields = ['role', 'household']
+    filterset_fields = ['role']
     search_fields = ['member__username']
+
+    def get_queryset(self):
+        user = self.request.user
+
+        user_profile = Profile.objects.get(member=user)
+        user_household = user_profile.household
+        return Profile.objects.filter(household=user_household)
+
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
