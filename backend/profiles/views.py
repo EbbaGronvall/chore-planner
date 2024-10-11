@@ -14,3 +14,8 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = ['role', 'household']
     search_fields = ['member__username']
+
+class ProfileDetail(generics.RetrieveUpdateAPIView):
+    permission_classes = [IsOwnerOrReadOnly]
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
