@@ -8,8 +8,17 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = [
             'id', 'title', 'description', 'created_at',
-            'due_date', 'status', 'member',
+            'due_date', 'status', 'assigned_to',
         ]
+    
+    def __init__(self, *args, **kwargs):
+        super(TaskSerializer, self).__init__(*args, **kwargs)
+        request = self.context.get('request')
+
+        if request and hasattr(request.user, 'profile'):
+            user_profile = request.user.profile
+            self.fields['assigned_to'].queryset = Profile.objects.filter(household=user_profile.household)
+
     def validate_due_date(self, value):
         if value < timezone.now().date():
             raise serializers.ValidationError('Due date can not be in the past.')

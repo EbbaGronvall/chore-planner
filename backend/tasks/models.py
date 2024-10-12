@@ -16,7 +16,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    member = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
+    assigned_to = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
 
     def clean(self):
         if self.due_date < timezone.now().date():
