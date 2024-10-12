@@ -24,7 +24,7 @@ class TaskSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Due date can not be in the past.')
         return value
 
-    def validate_member(self, value):
+    def validate_assigned_to(self, value):
         request = self.context.get('request')
         user_profile = request.user.profile
         if user_profile.role != 'Parent':

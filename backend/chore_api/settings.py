@@ -31,11 +31,13 @@ SECRET_KEY = 'django-insecure-%n@^ep)jw6go&uox*$ky9c8_k*h^s(zya+fvy!i=&4is7r)3uy
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net'
+    '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
+    '8000-ebbagronval-choreplanne-yfzau4p7qbb.ws.codeinstitute-ide.net'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net'
+    'https://8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
+    'https://8000-ebbagronval-choreplanne-yfzau4p7qbb.ws.codeinstitute-ide.net'
 ]
 
 # Application definition

@@ -15,7 +15,7 @@ class Profile(models.Model):
     household = models.ForeignKey(Household, on_delete=models.CASCADE, related_name='members')
 
     def __str__(self):
-        return f"{self.member.username} is a {self.role} in the {self.household.name} household"
+        return self.member.username
 
 
 def create_profile(sender, instance, created, **kwargs):
