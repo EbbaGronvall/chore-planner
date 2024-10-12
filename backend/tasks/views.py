@@ -24,3 +24,8 @@ class TaskList(generics.ListCreateAPIView):
     def get_queryset(self):
         user_profile = self.request.user.profile
         return Task.objects.filter(member__household=user_profile.household)
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
