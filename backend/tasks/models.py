@@ -1,5 +1,7 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from profiles.models import Profile
+from django.utils import timezone
 
 # A model for the tasks
 
@@ -14,8 +16,16 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
-    assigned_to = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
+    member = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
 
+    def clean(self):
+        if self.due_date < timezone.now().date():
+            raise ValidationError('Due date can not be in the past.')
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(Task, self).save(*args, **kwargs)
+        
     class Meta:
         ordering = ['-due_date']
     

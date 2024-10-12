@@ -14,10 +14,13 @@ class TaskList(generics.ListCreateAPIView):
         filters.OrderingFilter
     ]
     filterset_fields = [
-        'title', 'due_date', 'status', 'assigned_to'
+        'title', 'due_date', 'status', 'member'
     ]
-    search_fields = ['assigned_to']
+    search_fields = ['member']
+    ordering_fields = [
+        'title', 'due_date', 'status', 'member'
+    ]
 
     def get_queryset(self):
         user_profile = self.request.user.profile
-        return Task.objects.filter(assigned_to__household=user_profile.household)
+        return Task.objects.filter(member__household=user_profile.household)
