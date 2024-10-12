@@ -16,6 +16,9 @@ class Task(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     assigned_to = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='tasks')
 
+    class Meta:
+        ordering = ['-due_date']
+    
     def __str__(self):
         return self.title
 
