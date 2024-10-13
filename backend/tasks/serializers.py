@@ -4,6 +4,7 @@ from .models import Task
 from profiles.models import Profile
 
 class TaskSerializer(serializers.ModelSerializer):
+    assigned_to = serializers.ReadOnlyField(source='assigned_to.username')
     class Meta:
         model = Task
         fields = [
