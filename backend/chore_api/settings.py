@@ -32,12 +32,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
-    '8000-ebbagronval-choreplanne-yfzau4p7qbb.ws.codeinstitute-ide.net'
+    '8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
-    'https://8000-ebbagronval-choreplanne-yfzau4p7qbb.ws.codeinstitute-ide.net'
+    'https://8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
 ]
 
 # Application definition

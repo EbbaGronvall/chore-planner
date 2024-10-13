@@ -8,7 +8,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             elif hasattr(obj, 'assigned_to'):  # For Task objects
                 return obj.assigned_to.household == request.user.profile.household
             return True
-        if hasattr(obj, 'assignes_to'):
+        if hasattr(obj, 'assigned_to'):
             return (
                 obj.assigned_to.household == request.user.profile.household and
                 request.user.profile.role == 'parent'

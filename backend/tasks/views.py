@@ -34,8 +34,5 @@ class TaskList(generics.ListCreateAPIView):
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TaskSerializer
-   
-    def get_queryset(self):
-        user_profile = self.request.user.profile
-        return Task.objects.filter(assigned_to__household=user_profile.household)
+    queryset = Task.objects.all()
     
