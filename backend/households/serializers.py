@@ -1,9 +1,12 @@
 from rest_framework import serializers
 from .models import Household
-#from profiles.serializers import ProfileSerializer
+
 
 class HouseholdSerializer(serializers.ModelSerializer):
-    #members = ProfileSerializer(many=True, read_only=True)
+    members = serializers.SerializerMethodField()
+
+    def get_members(self, obj):
+        return [profile.member.username for profile in obj.members.all()]
 
     class Meta:
         model = Household
