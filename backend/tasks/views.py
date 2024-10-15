@@ -1,7 +1,6 @@
 from rest_framework import generics, filters
 from .models import Task
 from .serializers import TaskSerializer
-
 from chore_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -35,4 +34,5 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
+ 
     
