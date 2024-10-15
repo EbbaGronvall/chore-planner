@@ -1,9 +1,12 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from django.utils import timezone
 from .models import Task
 from profiles.models import Profile
 
 class TaskSerializer(serializers.ModelSerializer):
+    due_date = serializers.SerializerMethodField()
+
     class Meta:
         model = Task
         fields = [
@@ -11,6 +14,9 @@ class TaskSerializer(serializers.ModelSerializer):
             'due_date', 'status', 'assigned_to',
         ]
     
+    def get_due_date(self, obj):
+        return naturaltime(obj.due_date)
+
     def __init__(self, *args, **kwargs):
         super(TaskSerializer, self).__init__(*args, **kwargs)
         request = self.context.get('request')
