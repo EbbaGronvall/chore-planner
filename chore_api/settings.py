@@ -57,6 +57,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
+    '.herokuapp.com',
     '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
     '8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
 ]
