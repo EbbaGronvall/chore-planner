@@ -2,8 +2,16 @@
     background-color: rgb(246, 194, 217);
     color: rgb(31, 31, 31);
     font-weight: 700;
-    
+    box-shadow: rgb(31, 31, 31) 0px 6px 15px 0px
 }
+
 .Brand {
     font-size: 70px;
+    color: rgb(31, 31, 31);
+}
+.NavLink {
+    padding: 10px;
+}
+.Active i {
+    color: rgb(31, 31, 31);
 }
