@@ -60,8 +60,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
-    'https://8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
+    'https://*.codeinstitute-ide.net/',
+    'https://*.herokuapp.com'
 ]
 
 # Application definition
@@ -115,7 +115,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
-ROOT_URLCONF = 'backend.chore_api.urls'
+ROOT_URLCONF = 'chore_api.urls'
 
 TEMPLATES = [
     {
@@ -133,7 +133,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.chore_api.wsgi.application'
+WSGI_APPLICATION = 'chore_api.wsgi.application'
 
 
 # Database
