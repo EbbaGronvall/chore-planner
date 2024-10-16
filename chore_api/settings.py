@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from django.utils.translation import gettext_lazy as _
+import re
 
 if os.path.exists('env.py'):
     import env
@@ -54,7 +55,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'CreateANEWRandomValueHere')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    'localhost', '.herokuapp.com',
+    os.environ.get('ALLOWED_HOST'),
+    'localhost',
     '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
     '8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
 ]
@@ -100,13 +102,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True
