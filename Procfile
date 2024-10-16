@@ -1,2 +1,2 @@
-release: python backend/manage.py makemigrations && python backend/manage.py migrate
-web: gunicorn backend.chore_api.wsgi:application 
+release: python manage.py makemigrations && python manage.py migrate
+web: gunicorn chore_api.wsgi
