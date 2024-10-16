@@ -1,11 +1,12 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap"
+import styles from "../styles/NavBar.module.css"
 
 const NavBar = () => {
 	return (
-		<Navbar bg="dark" variant="dark" expand="md" fixed="top">
+		<Navbar className={styles.NavBar} expand="md" fixed="top">
 			<Container>
-				<Navbar.Brand>ChorePlanner</Navbar.Brand>
+				<Navbar.Brand className={styles.Brand}>ChorePlanner</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ml-auto text-left">
