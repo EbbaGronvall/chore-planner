@@ -29,10 +29,10 @@ REST_FRAMEWORK = {
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )]
 }
-# if 'DEV' not in os.environ:
-#      REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
-#          'rest_framework.renderers.JSONRenderer',
-#      ]
+if 'DEV' not in os.environ:
+     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+         'rest_framework.renderers.JSONRenderer',
+     ]
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
@@ -54,7 +54,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'CreateANEWRandomValueHere')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    'localhost', '.herokuapp.com'
+    'localhost', '.herokuapp.com',
     '8000-ebbagronval-choreplanne-m68by79catd.ws.codeinstitute-ide.net',
     '8000-ebbagronval-choreplanne-ikn2ys9qtw3.ws.codeinstitute-ide.net'
 ]
