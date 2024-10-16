@@ -115,7 +115,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
-ROOT_URLCONF = 'chore_api.urls'
+ROOT_URLCONF = 'backend.chore_api.urls'
 
 TEMPLATES = [
     {
@@ -133,7 +133,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'chore_api.wsgi.application'
+WSGI_APPLICATION = 'backend.chore_api.wsgi.application'
 
 
 # Database
