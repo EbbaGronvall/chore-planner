@@ -1,10 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Chore Planner
 
-# This template has been deprecated
-
-Please use (and bookmark) this template instead: [CI Full Template](https://github.com/Code-Institute-Org/ci-full-template)
-
-Any projects built using the old template will continue to work. For all new projects, please use the **CI Full Template**, which will be updated more frequently.
-
----
-Happy coding!
+My vision with this project was to create a webpage for families to plan their everyday life. I overscoped and got caught up in the API and started on the frontend to late in the process. I then got hit with two migraine attacks within a week so all the work I needed to do could not be done. This project is an obvious fail so don't even waste your time going through it.
